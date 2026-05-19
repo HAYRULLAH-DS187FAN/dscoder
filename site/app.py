@@ -158,4 +158,20 @@ st.markdown(
     </a>
     """,
     unsafe_allow_html=True
-)
+)# --- YORUM ALANI (GUESTBOOK) ---
+era.markdown("---")
+era.subheader(text[lang]["comments_title"])
+
+# GitHub entegrasyonu ile reklamsız, temiz yorum alanı (Utterances)
+# !!! REPO KISMINI KENDİ KULLANICI ADIN VE DEPO ADINLA DEĞİŞTİR !!!
+# Örnek: repo="ahmetyazilim/code-converter"
+html_comments = """
+<script src="https://utteranc.es/client.js"
+        repo="HAYRULLAH-DS187FAN/dscoder
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+"""
+era.markdown(html_comments, unsafe_allow_html=True)
