@@ -125,21 +125,20 @@ with tab2:
                 
         except Exception:
             st.error(text[lang]["error"])
-# --- BAĞIŞ BUTONU (DİNAMİK LİNK) ---
+# --- BAĞIŞ BUTONU (TEK VE AKILLI LİNK) ---
 st.markdown("---")
 
 if lang == "TR":
     button_text = "☕ Bana Bir Kahve Ismarla (Destek Ol)"
     info_text = "💡 Bu site bir öğrenci tarafından geliştirilmiştir. Destekleriniz için teşekkürler!"
-    # Türk kullanıcılar için TL olan bağış linkin
-    coffee_link = "https://kreosus.com/supportme_TL"
 else:
     button_text = "☕ Buy Me a Coffee (Support Me)"
     info_text = "💡 This tool is developed by a student. Thanks for your support!"
-    # Yabancılar (Gavurlar) için Dolar olan bağış linkin
-    coffee_link = "https://kreosus.com/supportme_USD"
 
 st.write(info_text)
+
+# Kreosus'tan aldığın o tek linki buraya yapıştır geç, gerisini Kreosus halleder!
+coffee_link = "https://kreosus.com/supportme"
 
 # Buton tasarımı
 st.markdown(
