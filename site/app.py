@@ -125,3 +125,30 @@ with tab2:
                 
         except Exception:
             st.error(text[lang]["error"])
+# --- BAĞIŞ BUTONU (DİNAMİK LİNK) ---
+st.markdown("---")
+
+if lang == "TR":
+    button_text = "☕ Bana Bir Kahve Ismarla (Destek Ol)"
+    info_text = "💡 Bu site bir öğrenci tarafından geliştirilmiştir. Destekleriniz için teşekkürler!"
+    # Türk kullanıcılar için TL olan bağış linkin
+    coffee_link = "https://kreosus.com/supportme_TL"
+else:
+    button_text = "☕ Buy Me a Coffee (Support Me)"
+    info_text = "💡 This tool is developed by a student. Thanks for your support!"
+    # Yabancılar (Gavurlar) için Dolar olan bağış linkin
+    coffee_link = "https://kreosus.com/supportme_USD"
+
+st.write(info_text)
+
+# Buton tasarımı
+st.markdown(
+    f"""
+    <a href="{coffee_link}" target="_blank" style="text-decoration: none;">
+        <div style="background-color: #FFDD00; color: #000000; padding: 12px 24px; border-radius: 8px; text-align: center; font-weight: bold; font-size: 16px; box-shadow: 2px 2px 5px rgba(0,0,0,0.2); width: fit-content; margin: 10px auto; cursor: pointer;">
+            {button_text}
+        </div>
+    </a>
+    """,
+    unsafe_allow_html=True
+)
