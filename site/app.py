@@ -1,6 +1,18 @@
-import streamlit as st
+import streamlit as era
 import base64
 
+# --- GOOGLE ANALYTICS ENTEGRASYONU ---
+ga_code = """
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CBHKKL3N3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0CBHKKL3N3');
+</script>
+"""
+era.markdown(ga_code, unsafe_allow_html=True)
 # Sayfa ayarları
 st.set_page_config(page_title="Gelişmiş Kod Dönüştürücü / Code Converter", page_icon="⚙️", layout="centered")
 
