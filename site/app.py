@@ -57,11 +57,16 @@ menu = st.selectbox(text[lang]["menu_label"], menu_options)
 # Sekmeler
 tab1, tab2 = st.tabs([text[lang]["tab1"], text[lang]["tab2"]])
 
-# --- ENCODE SEKMESİ ---
+# --- ENCODE SEKMESİ (Telefon Uyumlu) ---
 with tab1:
-    input_text = st.text_area(text[lang]["placeholder_enc"], key="enc_in")
+    # Her şeyi bir form içine alıyoruz
+    with st.form(key='encode_form'):
+        input_text = st.text_area(text[lang]["placeholder_enc"], key="enc_in")
+        # Formun gönderilmesi için bir buton (Enter görevini bu yapacak)
+        submit_encode = st.form_submit_button(label="🔒 ENCODE / DÖNÜŞTÜR")
     
-    if input_text:
+    # Bilgisayarda enter'a basılınca ya da telefonda butona basılınca çalışır
+    if submit_encode and input_text:
         if menu == "Hexadecimal":
             res = input_text.encode('utf-8').hex()
             formatted = " ".join([res[i:i+2] for i in range(0, len(res), 2)])
@@ -89,11 +94,14 @@ with tab1:
             st.success(text[lang]["mors_note"])
             st.code(" ".join(mors_res), language="text")
 
-# --- DECODE SEKMESİ ---
+# --- DECODE SEKMESİ (Telefon Uyumlu) ---
 with tab2:
-    input_code = st.text_area(text[lang]["placeholder_dec"], key="dec_in")
-    
-    if input_code:
+    # Burayı da form içine alıyoruz
+    with st.form(key='decode_form'):
+        input_code = st.text_area(text[lang]["placeholder_dec"], key="dec_in")
+        submit_decode = st.form_submit_button(label="🔓 DECODE / ÇÖZ")
+        
+    if submit_decode and input_code:
         try:
             if menu == "Hexadecimal":
                 clean = input_code.replace(" ", "").replace("\n", "")
